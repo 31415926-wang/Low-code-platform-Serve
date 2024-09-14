@@ -1,0 +1,873 @@
+{
+	"info": {
+		"_postman_id": "8df3e276-fe16-446c-908b-d48b16dc0392",
+		"name": "lego-biz-server",
+		"description": "慕课乐高 biz-eidor-server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "用户",
+			"item": [
+				{
+					"name": "获取短信验证码",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"phoneNumber\": \"15966635015\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://182.92.168.192:8081/api/users/genVeriCode",
+							"protocol": "http",
+							"host": [
+								"182",
+								"92",
+								"168",
+								"192"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"users",
+								"genVeriCode"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取用户信息",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiIxNTk2NjYzNTAxNSIsInBhc3N3b3JkIjoiM2I4NGZhYWFmZWE1NmI1Nzg5OTUwZTZmZjJlZmE5YTEiLCJwaG9uZU51bWJlciI6IjE1OTY2NjM1MDE1Iiwibmlja05hbWUiOiLkuZDpq5g1MDE1IiwiZ2VuZGVyIjoiMCIsInBpY3R1cmUiOm51bGwsImNpdHkiOm51bGwsImNyZWF0ZWRBdCI6IjIwMjAtMDktMTZUMTA6MDQ6NTUuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjAtMDktMTZUMTA6MDQ6NTUuMDAwWiIsImlhdCI6MTYwMDI1MDcwMCwiZXhwIjoxNjAwMjU0MzAwfQ.uTI4Tm0hEwKBGSke5vSTzsKPimWxX-AXesOqx5e4X6k",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://182.92.168.192:8081/api/users/getUserInfo",
+							"protocol": "http",
+							"host": [
+								"182",
+								"92",
+								"168",
+								"192"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"users",
+								"getUserInfo"
+							]
+						},
+						"description": "加 http head ，格式如 'Bearer <token>'"
+					},
+					"response": []
+				},
+				{
+					"name": "登录（手机号+验证码）",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"phoneNumber\": \"15966635015\",\n    \"veriCode\": \"7036\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://182.92.168.192:8081/api/users/loginByPhoneNumber",
+							"protocol": "http",
+							"host": [
+								"182",
+								"92",
+								"168",
+								"192"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"users",
+								"loginByPhoneNumber"
+							]
+						},
+						"description": "返回 token ，用于登录校验"
+					},
+					"response": []
+				},
+				{
+					"name": "修改用户信息",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiIxNTk2NjYzNTAxNSIsInBhc3N3b3JkIjoiM2I4NGZhYWFmZWE1NmI1Nzg5OTUwZTZmZjJlZmE5YTEiLCJwaG9uZU51bWJlciI6IjE1OTY2NjM1MDE1Iiwibmlja05hbWUiOiLkuZDpq5g1MDE1IiwiZ2VuZGVyIjoiMCIsInBpY3R1cmUiOm51bGwsImNpdHkiOm51bGwsImNyZWF0ZWRBdCI6IjIwMjAtMDktMTZUMTA6MDQ6NTUuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjAtMDktMTZUMTA6MDQ6NTUuMDAwWiIsImlhdCI6MTYwMDMzMjQxMCwiZXhwIjoxNjAwNDE4ODEwfQ.ArD7mhg4m-CVBFjACVzCKt2JZQJHwA9-IuUGjXezEIk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nickName\": \"aaa\",\n    \"gender\": 1,\n    \"picture\": \"/xxx/a.png\",\n    \"city\": \"北京\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://182.92.168.192:8081/api/users/updateUserInfo",
+							"protocol": "http",
+							"host": [
+								"182",
+								"92",
+								"168",
+								"192"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"users",
+								"updateUserInfo"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "作品",
+			"item": [
+				{
+					"name": "创建空白作品",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiIxNTk2NjYzNTAxNSIsInBhc3N3b3JkIjoiMTNjYTE5MWY2NWIxNjUxM2FlNmM0ZGE5OGZlNTZjNDIiLCJwaG9uZU51bWJlciI6IjE1OTY2NjM1MDE1Iiwibmlja05hbWUiOiJhYWEiLCJnZW5kZXIiOiIxIiwicGljdHVyZSI6Ii94eHgvYS5wbmciLCJjaXR5Ijoi5YyX5LqsIiwibGF0ZXN0TG9naW5BdCI6IjIwMjAtMTAtMDRUMDE6Mjk6NDguMDAwWiIsImlzRnJvemVuIjpmYWxzZSwiY3JlYXRlZEF0IjoiMjAyMC0wOS0xNlQwOTo1Nzo1OC4wMDBaIiwidXBkYXRlZEF0IjoiMjAyMC0xMC0wOVQwOToxMjoxNC4wMDBaIiwiaWF0IjoxNjAyMzE2OTAzLCJleHAiOjE2MDI0MDMzMDN9.wy2fU7QplktpM9Q4tiTvCSG6rIUsyptP0uhzwhhpj3k",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"作品x\",\n    \"desc\": \"啦啦啦\",\n    \"content\": {\n        \"components\": [],\n        \"props\": {\"b\": 200},\n        \"setting\": { \"a\": 100 }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://182.92.168.192:8081/api/works/",
+							"protocol": "http",
+							"host": [
+								"182",
+								"92",
+								"168",
+								"192"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"works",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询单个作品",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiIxNTk2NjYzNTAxNSIsInBhc3N3b3JkIjoiM2I4NGZhYWFmZWE1NmI1Nzg5OTUwZTZmZjJlZmE5YTEiLCJwaG9uZU51bWJlciI6IjE1OTY2NjM1MDE1Iiwibmlja05hbWUiOiLkuZDpq5g1MDE1IiwiZ2VuZGVyIjoiMCIsInBpY3R1cmUiOm51bGwsImNpdHkiOm51bGwsImNyZWF0ZWRBdCI6IjIwMjAtMDktMTZUMTA6MDQ6NTUuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjAtMDktMTZUMTA6MDQ6NTUuMDAwWiIsImlhdCI6MTYwMDMzMjQxMCwiZXhwIjoxNjAwNDE4ODEwfQ.ArD7mhg4m-CVBFjACVzCKt2JZQJHwA9-IuUGjXezEIk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://182.92.168.192:8081/api/works/1",
+							"protocol": "http",
+							"host": [
+								"182",
+								"92",
+								"168",
+								"192"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"works",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "修改作品数据",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiIxNTk2NjYzNTAxNSIsInBhc3N3b3JkIjoiM2I4NGZhYWFmZWE1NmI1Nzg5OTUwZTZmZjJlZmE5YTEiLCJwaG9uZU51bWJlciI6IjE1OTY2NjM1MDE1Iiwibmlja05hbWUiOiLkuZDpq5g1MDE1IiwiZ2VuZGVyIjoiMCIsInBpY3R1cmUiOm51bGwsImNpdHkiOm51bGwsImNyZWF0ZWRBdCI6IjIwMjAtMDktMTZUMTA6MDQ6NTUuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjAtMDktMTZUMTA6MDQ6NTUuMDAwWiIsImlhdCI6MTYwMDMzMjQxMCwiZXhwIjoxNjAwNDE4ODEwfQ.ArD7mhg4m-CVBFjACVzCKt2JZQJHwA9-IuUGjXezEIk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"作品111\",\n    \"desc\": \"啦啦啦111\",\n    \"content\": {\n        \"components\": [{\"a\": 100}],\n        \"setting\": {\"b\": 200},\n        \"props\": {\"c\": 300}\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://182.92.168.192:8081/api/works/1",
+							"protocol": "http",
+							"host": [
+								"182",
+								"92",
+								"168",
+								"192"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"works",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "复制作品",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiIxNTk2NjYzNTAxNSIsInBhc3N3b3JkIjoiMTNjYTE5MWY2NWIxNjUxM2FlNmM0ZGE5OGZlNTZjNDIiLCJwaG9uZU51bWJlciI6IjE1OTY2NjM1MDE1Iiwibmlja05hbWUiOiJhYWEiLCJnZW5kZXIiOiIxIiwicGljdHVyZSI6Ii94eHgvYS5wbmciLCJjaXR5Ijoi5YyX5LqsIiwiY3JlYXRlZEF0IjoiMjAyMC0wOS0xNlQwOTo1Nzo1OC4wMDBaIiwidXBkYXRlZEF0IjoiMjAyMC0wOS0xN1QwNjozMTozNS4wMDBaIiwiaWF0IjoxNjAwMzM1MTgzLCJleHAiOjE2MDA0MjE1ODN9.6H9J2VzwkZEfqB3nIUxDztrtE3WR8xeiDrRiPup6-7o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://182.92.168.192:8081/api/works/copy/1",
+							"protocol": "http",
+							"host": [
+								"182",
+								"92",
+								"168",
+								"192"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"works",
+								"copy",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除作品",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiIxNTk2NjYzNTAxNSIsInBhc3N3b3JkIjoiMTNjYTE5MWY2NWIxNjUxM2FlNmM0ZGE5OGZlNTZjNDIiLCJwaG9uZU51bWJlciI6IjE1OTY2NjM1MDE1Iiwibmlja05hbWUiOiJhYWEiLCJnZW5kZXIiOiIxIiwicGljdHVyZSI6Ii94eHgvYS5wbmciLCJjaXR5Ijoi5YyX5LqsIiwiY3JlYXRlZEF0IjoiMjAyMC0wOS0xNlQwOTo1Nzo1OC4wMDBaIiwidXBkYXRlZEF0IjoiMjAyMC0wOS0xN1QwNjozMTozNS4wMDBaIiwiaWF0IjoxNjAwMzM1MTgzLCJleHAiOjE2MDA0MjE1ODN9.6H9J2VzwkZEfqB3nIUxDztrtE3WR8xeiDrRiPup6-7o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://182.92.168.192:8081/api/works/5",
+							"protocol": "http",
+							"host": [
+								"182",
+								"92",
+								"168",
+								"192"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"works",
+								"5"
+							]
+						},
+						"description": "假删除，只是更新 status"
+					},
+					"response": []
+				},
+				{
+					"name": "恢复删除",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiIxNTk2NjYzNTAxNSIsInBhc3N3b3JkIjoiMTNjYTE5MWY2NWIxNjUxM2FlNmM0ZGE5OGZlNTZjNDIiLCJwaG9uZU51bWJlciI6IjE1OTY2NjM1MDE1Iiwibmlja05hbWUiOiJhYWEiLCJnZW5kZXIiOiIxIiwicGljdHVyZSI6Ii94eHgvYS5wbmciLCJjaXR5Ijoi5YyX5LqsIiwiY3JlYXRlZEF0IjoiMjAyMC0wOS0xNlQwOTo1Nzo1OC4wMDBaIiwidXBkYXRlZEF0IjoiMjAyMC0wOS0xN1QwNjozMTozNS4wMDBaIiwiaWF0IjoxNjAwMzM1MTgzLCJleHAiOjE2MDA0MjE1ODN9.6H9J2VzwkZEfqB3nIUxDztrtE3WR8xeiDrRiPup6-7o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://182.92.168.192:8081/api/works/put-back/5",
+							"protocol": "http",
+							"host": [
+								"182",
+								"92",
+								"168",
+								"192"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"works",
+								"put-back",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "转赠作品",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiIxNTk2NjYzNTAxNSIsInBhc3N3b3JkIjoiMTNjYTE5MWY2NWIxNjUxM2FlNmM0ZGE5OGZlNTZjNDIiLCJwaG9uZU51bWJlciI6IjE1OTY2NjM1MDE1Iiwibmlja05hbWUiOiJhYWEiLCJnZW5kZXIiOiIxIiwicGljdHVyZSI6Ii94eHgvYS5wbmciLCJjaXR5Ijoi5YyX5LqsIiwiY3JlYXRlZEF0IjoiMjAyMC0wOS0xNlQwOTo1Nzo1OC4wMDBaIiwidXBkYXRlZEF0IjoiMjAyMC0wOS0xN1QwNjozMTozNS4wMDBaIiwiaWF0IjoxNjAwMzM1MTgzLCJleHAiOjE2MDA0MjE1ODN9.6H9J2VzwkZEfqB3nIUxDztrtE3WR8xeiDrRiPup6-7o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://182.92.168.192:8081/api/works/transfer/1/13966667777",
+							"protocol": "http",
+							"host": [
+								"182",
+								"92",
+								"168",
+								"192"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"works",
+								"transfer",
+								"1",
+								"13966667777"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "发布作品",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiIxNTk2NjYzNTAxNSIsInBhc3N3b3JkIjoiMTNjYTE5MWY2NWIxNjUxM2FlNmM0ZGE5OGZlNTZjNDIiLCJwaG9uZU51bWJlciI6IjE1OTY2NjM1MDE1Iiwibmlja05hbWUiOiJhYWEiLCJnZW5kZXIiOiIxIiwicGljdHVyZSI6Ii94eHgvYS5wbmciLCJjaXR5Ijoi5YyX5LqsIiwiY3JlYXRlZEF0IjoiMjAyMC0wOS0xNlQwOTo1Nzo1OC4wMDBaIiwidXBkYXRlZEF0IjoiMjAyMC0wOS0xN1QwNjozMTozNS4wMDBaIiwiaWF0IjoxNjAwNzU1MzExLCJleHAiOjE2MDA4NDE3MTF9.vE4FSm8LCmhSBcXMuTxJLUps8yjSMPifrVbRqugMrlo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://182.92.168.192:8081/api/works/publish/2",
+							"protocol": "http",
+							"host": [
+								"182",
+								"92",
+								"168",
+								"192"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"works",
+								"publish",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "发布为模板",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiIxNTk2NjYzNTAxNSIsInBhc3N3b3JkIjoiMTNjYTE5MWY2NWIxNjUxM2FlNmM0ZGE5OGZlNTZjNDIiLCJwaG9uZU51bWJlciI6IjE1OTY2NjM1MDE1Iiwibmlja05hbWUiOiJhYWEiLCJnZW5kZXIiOiIxIiwicGljdHVyZSI6Ii94eHgvYS5wbmciLCJjaXR5Ijoi5YyX5LqsIiwiY3JlYXRlZEF0IjoiMjAyMC0wOS0xNlQwOTo1Nzo1OC4wMDBaIiwidXBkYXRlZEF0IjoiMjAyMC0wOS0xN1QwNjozMTozNS4wMDBaIiwiaWF0IjoxNjAwNzU1MzExLCJleHAiOjE2MDA4NDE3MTF9.vE4FSm8LCmhSBcXMuTxJLUps8yjSMPifrVbRqugMrlo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://182.92.168.192:8081/api/works/publish-template/3",
+							"protocol": "http",
+							"host": [
+								"182",
+								"92",
+								"168",
+								"192"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"works",
+								"publish-template",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询我的作品或模板",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiIxMzYxMTkxNTYzMiIsInBhc3N3b3JkIjoiZmY2NTJhZjhmOTNkMzE2ZGM3NGUzNTdiOTAxNWJiMTciLCJwaG9uZU51bWJlciI6IjEzNjExOTE1NjMyIiwibmlja05hbWUiOiLkuZDpq5g1NjMyIiwiZ2VuZGVyIjoiMCIsInBpY3R1cmUiOm51bGwsImNpdHkiOm51bGwsImxhdGVzdExvZ2luQXQiOiIyMDIwLTEwLTA5VDEwOjA2OjExLjAwMFoiLCJpc0Zyb3plbiI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjAtMDktMjZUMDI6MTg6NDQuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjAtMTAtMDlUMTA6MDY6MTEuMDAwWiIsImlhdCI6MTYwMjI5NDIwNCwiZXhwIjoxNjAyMzgwNjA0fQ.njXsU3ibnvO7lFDNLysVGsycX-XKmroQdd8n1WCZLhY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://182.92.168.192:8081/api/works/?title=&status=1&pageIndex=0&pageSize=4",
+							"protocol": "http",
+							"host": [
+								"182",
+								"92",
+								"168",
+								"192"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"works",
+								""
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": ""
+								},
+								{
+									"key": "status",
+									"value": "1"
+								},
+								{
+									"key": "pageIndex",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取公共模板（无需登录）",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://182.92.168.192:8081/api/templates?title=&pageIndex=0&pageSize=8",
+							"protocol": "http",
+							"host": [
+								"182",
+								"92",
+								"168",
+								"192"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"templates"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": ""
+								},
+								{
+									"key": "pageIndex",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询单个开放模板",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://182.92.168.192:8081/api/templates/46",
+							"protocol": "http",
+							"host": [
+								"182",
+								"92",
+								"168",
+								"192"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"templates",
+								"46"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "工具",
+			"item": [
+				{
+					"name": "上传图片",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiIxNTk2NjYzNTAxNSIsInBhc3N3b3JkIjoiMTNjYTE5MWY2NWIxNjUxM2FlNmM0ZGE5OGZlNTZjNDIiLCJwaG9uZU51bWJlciI6IjE1OTY2NjM1MDE1Iiwibmlja05hbWUiOiJhYWEiLCJnZW5kZXIiOiIxIiwicGljdHVyZSI6Ii94eHgvYS5wbmciLCJjaXR5Ijoi5YyX5LqsIiwiY3JlYXRlZEF0IjoiMjAyMC0wOS0xNlQwOTo1Nzo1OC4wMDBaIiwidXBkYXRlZEF0IjoiMjAyMC0wOS0xN1QwNjozMTozNS4wMDBaIiwiaWF0IjoxNjAwNzU1MzExLCJleHAiOjE2MDA4NDE3MTF9.vE4FSm8LCmhSBcXMuTxJLUps8yjSMPifrVbRqugMrlo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "aaa",
+									"type": "file",
+									"src": "/Users/wfp/Desktop/favico.jpeg"
+								},
+								{
+									"key": "bbb",
+									"type": "file",
+									"src": "/Users/wfp/Desktop/teambition.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://182.92.168.192:8081/api/utils/upload-img",
+							"protocol": "http",
+							"host": [
+								"182",
+								"92",
+								"168",
+								"192"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"utils",
+								"upload-img"
+							]
+						},
+						"description": "form-data\n支持多张上传"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "渠道",
+			"item": [
+				{
+					"name": "创建渠道",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiIxNTk2NjYzNTAxNSIsInBhc3N3b3JkIjoiMTNjYTE5MWY2NWIxNjUxM2FlNmM0ZGE5OGZlNTZjNDIiLCJwaG9uZU51bWJlciI6IjE1OTY2NjM1MDE1Iiwibmlja05hbWUiOiJhYWEiLCJnZW5kZXIiOiIxIiwicGljdHVyZSI6Ii94eHgvYS5wbmciLCJjaXR5Ijoi5YyX5LqsIiwiY3JlYXRlZEF0IjoiMjAyMC0wOS0xNlQwOTo1Nzo1OC4wMDBaIiwidXBkYXRlZEF0IjoiMjAyMC0wOS0xN1QwNjozMTozNS4wMDBaIiwiaWF0IjoxNjAwNzU1MzExLCJleHAiOjE2MDA4NDE3MTF9.vE4FSm8LCmhSBcXMuTxJLUps8yjSMPifrVbRqugMrlo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"默认\",\n    \"workId\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://182.92.168.192:8081/api/channel/",
+							"protocol": "http",
+							"host": [
+								"182",
+								"92",
+								"168",
+								"192"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"channel",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取单个作品的所有渠道",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiIxNTk2NjYzNTAxNSIsInBhc3N3b3JkIjoiMTNjYTE5MWY2NWIxNjUxM2FlNmM0ZGE5OGZlNTZjNDIiLCJwaG9uZU51bWJlciI6IjE1OTY2NjM1MDE1Iiwibmlja05hbWUiOiJhYWEiLCJnZW5kZXIiOiIxIiwicGljdHVyZSI6Ii94eHgvYS5wbmciLCJjaXR5Ijoi5YyX5LqsIiwiY3JlYXRlZEF0IjoiMjAyMC0wOS0xNlQwOTo1Nzo1OC4wMDBaIiwidXBkYXRlZEF0IjoiMjAyMC0wOS0xN1QwNjozMTozNS4wMDBaIiwiaWF0IjoxNjAwNzU1MzExLCJleHAiOjE2MDA4NDE3MTF9.vE4FSm8LCmhSBcXMuTxJLUps8yjSMPifrVbRqugMrlo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://182.92.168.192:8081/api/channel/getWorkChannels/2",
+							"protocol": "http",
+							"host": [
+								"182",
+								"92",
+								"168",
+								"192"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"channel",
+								"getWorkChannels",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "修改渠道名称",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiIxNTk2NjYzNTAxNSIsInBhc3N3b3JkIjoiMTNjYTE5MWY2NWIxNjUxM2FlNmM0ZGE5OGZlNTZjNDIiLCJwaG9uZU51bWJlciI6IjE1OTY2NjM1MDE1Iiwibmlja05hbWUiOiJhYWEiLCJnZW5kZXIiOiIxIiwicGljdHVyZSI6Ii94eHgvYS5wbmciLCJjaXR5Ijoi5YyX5LqsIiwiY3JlYXRlZEF0IjoiMjAyMC0wOS0xNlQwOTo1Nzo1OC4wMDBaIiwidXBkYXRlZEF0IjoiMjAyMC0wOS0xN1QwNjozMTozNS4wMDBaIiwiaWF0IjoxNjAwNzU1MzExLCJleHAiOjE2MDA4NDE3MTF9.vE4FSm8LCmhSBcXMuTxJLUps8yjSMPifrVbRqugMrlo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"AAA\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://182.92.168.192:8081/api/channel/updateName/2",
+							"protocol": "http",
+							"host": [
+								"182",
+								"92",
+								"168",
+								"192"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"channel",
+								"updateName",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除渠道",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiIxNTk2NjYzNTAxNSIsInBhc3N3b3JkIjoiMTNjYTE5MWY2NWIxNjUxM2FlNmM0ZGE5OGZlNTZjNDIiLCJwaG9uZU51bWJlciI6IjE1OTY2NjM1MDE1Iiwibmlja05hbWUiOiJhYWEiLCJnZW5kZXIiOiIxIiwicGljdHVyZSI6Ii94eHgvYS5wbmciLCJjaXR5Ijoi5YyX5LqsIiwiY3JlYXRlZEF0IjoiMjAyMC0wOS0xNlQwOTo1Nzo1OC4wMDBaIiwidXBkYXRlZEF0IjoiMjAyMC0wOS0xN1QwNjozMTozNS4wMDBaIiwiaWF0IjoxNjAwNzU1MzExLCJleHAiOjE2MDA4NDE3MTF9.vE4FSm8LCmhSBcXMuTxJLUps8yjSMPifrVbRqugMrlo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://182.92.168.192:8081/api/channel/2",
+							"protocol": "http",
+							"host": [
+								"182",
+								"92",
+								"168",
+								"192"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"channel",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

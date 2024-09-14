@@ -13,6 +13,7 @@ const app = express();
 //全局中间件
 app.use(function (req, res, next) {
     next();
+    console.log("有人访问");
 })
 
 app.use(history()) //解决404问题
@@ -24,7 +25,9 @@ app.use('/test', function (req, res, next) {
 })
 
 // 使用 cors 中间件处理跨域请求
-app.use(cors())
+app.use(cors({
+    // origin: 'http://localhost:808011'
+}))
 
 /* 上传图片的接口 */
 // 使用 express-fileupload 中间件来处理文件上传
@@ -64,6 +67,11 @@ app.get('/test', function (req, res) {
     <div>111222333</div>
     </body></html>`)
 })
+app.post('/api/users/genVeriCode', function (req, res) {
+    res.send(`<html><body> 
+    <div>111222333</div>
+    </body></html>`)
+})
 
 
 //指定静态资源的访问
@@ -75,5 +83,5 @@ const port = 8888;
 app.listen(port, function () {
     console.log("服务启动成功!!!");
     const url = 'http://localhost:' + port;
-    // open(url)
+    // open(url) 
 })
