@@ -2,6 +2,7 @@ const open = require('open')
 var history = require('connect-history-api-fallback');
 const path = require('path')
 const fileUpload = require('express-fileupload');
+const { createProxyMiddleware } = require('http-proxy-middleware');
 const fs = require('fs');
 
 const cors = require('cors');
@@ -75,13 +76,23 @@ app.post('/api/users/genVeriCode', function (req, res) {
 
 
 //指定静态资源的访问
-app.use(express.static(path.resolve(__dirname, 'dist')))
+// app.use(express.static(path.resolve(__dirname, 'dist')))
+app.use(express.static(path.resolve(__dirname, 'docs')))
 
+
+//自建 CORS 代理
+app.use('/core-api', createProxyMiddleware({
+    target: 'https://api.imooc-lego.com',
+    changeOrigin: true,
+    pathRewrite: {
+      '^/core-api': '', // 重写路径
+    },
+  }));
 
 //启动http服务
 const port = 8888;
 app.listen(port, function () {
     console.log("服务启动成功!!!");
-    const url = 'http://localhost:' + port;
+    const url = 'c' + port;
     // open(url) 
 })
